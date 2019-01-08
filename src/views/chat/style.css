@@ -1,0 +1,13 @@
+.header_content{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.title{
+    font-size: 20px;
+}
+.btn span{
+    padding: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+}
