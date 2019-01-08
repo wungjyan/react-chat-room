@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import {Redirect} from 'react-router-dom';
 import { initData } from "../../store/actionCreator";
 
 class Chat extends Component {
@@ -7,7 +8,11 @@ class Chat extends Component {
     this.props.handleInit();
   }
   render() {
-    return <h2>{this.props.nickname}</h2>;
+    return (
+      <div>
+       
+      </div>
+    )
   }
 }
 

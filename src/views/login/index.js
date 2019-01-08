@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Icon, Input, Button } from "antd";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/actionCreator";
@@ -50,10 +50,6 @@ class Login extends Component {
             )}
           </Form.Item>
           <Form.Item>
-            {getFieldDecorator("remember", {
-              valuePropName: "checked",
-              initialValue: true
-            })(<Checkbox>记住我</Checkbox>)}
             <Button
               type="primary"
               htmlType="submit"
