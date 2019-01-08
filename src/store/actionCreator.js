@@ -3,6 +3,7 @@ import {
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
   INIT_DATA,
+  LOGIN_OUT,
   ERROR
 } from "./actionTypes";
 import { message } from "antd";
@@ -50,6 +51,11 @@ export const login = data => {
       }
     });
   };
+};
+
+// 退出登录
+export const loginOut = () => {
+  return { type: LOGIN_OUT };
 };
 
 // 初始化获取用户数据

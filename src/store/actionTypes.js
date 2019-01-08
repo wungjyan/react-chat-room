@@ -9,3 +9,6 @@ export const ERROR = "ERROR";
 
 // 初始化获取数据
 export const INIT_DATA = "INIT_DATA";
+
+// 退出登录
+export const LOGIN_OUT = "LOGIN_OUT";

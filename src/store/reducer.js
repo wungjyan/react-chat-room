@@ -2,6 +2,7 @@ import {
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
   INIT_DATA,
+  LOGIN_OUT,
   ERROR
 } from "./actionTypes";
 
@@ -19,6 +20,8 @@ function reducer(state = initState, action) {
       return { ...state, ...action.data, redirectTo: "/chat" };
     case INIT_DATA:
       return { ...state, ...action.data };
+    case LOGIN_OUT:
+      return { ...initState};
     case ERROR:
       return { ...state, msg: action.data };
     default:
