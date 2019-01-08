@@ -12,6 +12,7 @@ import { Layout } from "antd";
 import Btns from "./components/Btns";
 const { Header, Footer, Content } = Layout;
 
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
