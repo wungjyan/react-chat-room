@@ -1,24 +1,39 @@
-.header_content{
-    display: flex;
-    justify-content: space-between;
-    color: white;
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  color: white;
 }
-.title{
-    font-size: 20px;
+.title {
+  font-size: 20px;
 }
-.btn span{
-    padding: 5px;
-    margin: 0 10px;
-    cursor: pointer;
+.btn span {
+  padding: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/* 表单样式 */
+.register-form-wrapper {
+  width: 500px;
+  margin: 100px auto;
+}
+
+.login-form-wrapper {
+  width: 300px;
+  margin: 100px auto;
+}
+
+.login-form-button {
+  width: 100%;
 }
 
 /* 覆盖 antd 样式 */
-.ant-layout-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.ant-layout-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-.ant-layout-content{
-    background: white;
+.ant-layout-content {
+  background: white;
 }

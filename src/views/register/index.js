@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 import { Form, Input, Button } from "antd";
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
@@ -47,7 +46,7 @@ class Register extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className="form_wrapper">
+      <div className="register-form-wrapper">
         {this.props.redirectTo?<Redirect to={this.props.redirectTo}/>:null}
         <Form onSubmit={this.handleSubmit}>
           <Form.Item label="用户名">

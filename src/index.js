@@ -9,7 +9,7 @@ import Login from "./views/login";
 import Chat from "./views/chat";
 import "./main.css";
 import { Layout } from "antd";
-import Btns from './components/Btns'
+import Btns from "./components/Btns";
 const { Header, Footer, Content } = Layout;
 
 ReactDOM.render(
@@ -18,9 +18,9 @@ ReactDOM.render(
       <div>
         <Layout>
           <Header>
-            <div className="header_content">
+            <div className="header-content">
               <span className="title">瓶子的聊天室</span>
-			  <Btns/>
+              <Btns />
             </div>
           </Header>
           <Content>
