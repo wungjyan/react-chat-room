@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -29,7 +29,7 @@ ReactDOM.render(
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/chat" component={Chat} />
-              <Route component={Chat} />
+			  <Redirect to="/chat"/>
             </Switch>
           </Content>
           <Footer>作者：瓶子</Footer>
