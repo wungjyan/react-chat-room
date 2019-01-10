@@ -4,9 +4,13 @@ import {
   LOGIN_SUCCESS,
   INIT_DATA,
   LOGIN_OUT,
+  MSG_RECV,
+  MSG_LIST,
   ERROR
 } from "./actionTypes";
 import { message } from "antd";
+import io from "socket.io-client";
+const socket = io("http://localhost:9000");
 
 function getRegisterAction(obj) {
   return { type: REGISTER_SUCCESS, data: obj };
@@ -16,6 +20,12 @@ function getLoginAction(obj) {
 }
 function getLoadAction(obj) {
   return { type: INIT_DATA, data: obj };
+}
+function msgRecv(obj) {
+  return { type: MSG_RECV, data: obj };
+}
+function msgList(obj) {
+  return { type: MSG_LIST, data: obj };
 }
 function errMsg(msg) {
   return { type: ERROR, data: msg };
@@ -65,6 +75,33 @@ export const initData = () => {
       if (res.status === 200 && res.data.code === 0) {
         dispatch(getLoadAction(res.data.data));
       }
+    });
+  };
+};
+
+// 获取消息列表
+export const getMsgLIst = () => {
+  return dispatch => {
+    axios.get("/user/getmsglist").then(res => {
+      if (res.status === 200 && res.data.code === 0) {
+        dispatch(msgList(res.data.data));
+      }
+    });
+  };
+};
+
+// 发送消息
+export const sendMsg = data => {
+  return dispatch => {
+    socket.emit("sendMsg", data);
+  };
+};
+
+// 接受消息
+export const recvMsg = () => {
+  return dispatch => {
+    socket.on("recvMsg", data => {
+      dispatch(msgRecv(data));
     });
   };
 };

@@ -4,7 +4,7 @@ import {
   INIT_DATA,
   LOGIN_OUT,
   ERROR
-} from "./actionTypes";
+} from "../actionTypes";
 
 const initState = {
   redirectTo: "", // 路由跳转控制

@@ -82,7 +82,7 @@ class Btns extends Component {
 
 const mapStateToProps = state => {
   return {
-    nickname: state.nickname
+    nickname: state.user.nickname
   };
 };
 

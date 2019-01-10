@@ -12,3 +12,9 @@ export const INIT_DATA = "INIT_DATA";
 
 // 退出登录
 export const LOGIN_OUT = "LOGIN_OUT";
+
+// 接受消息
+export const MSG_RECV = "MSG_RECV";
+
+// 接受消息列表
+export const MSG_LIST = "MSG_LIST";

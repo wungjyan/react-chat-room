@@ -99,7 +99,7 @@ Register = Form.create({})(Register);
 
 const mapStateToProps = (state)=>{
     return {
-        redirectTo:state.redirectTo
+        redirectTo:state.user.redirectTo
     }
 }
 
