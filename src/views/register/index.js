@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import {register} from '../../store/actionCreator'
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { register } from "../../store/actionCreator";
 
 class Register extends Component {
   constructor(props) {
@@ -34,12 +34,12 @@ class Register extends Component {
   };
 
   handleSubmit = e => {
-    console.log('点击按钮')
+    console.log("点击按钮");
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
-        this.props.handleRegister(values)
+        //console.log("Received values of form: ", values);
+        this.props.handleRegister(values);
       }
     });
   };
@@ -47,7 +47,7 @@ class Register extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="register-form-wrapper">
-        {this.props.redirectTo?<Redirect to={this.props.redirectTo}/>:null}
+        {this.props.redirectTo ? <Redirect to={this.props.redirectTo} /> : null}
         <Form onSubmit={this.handleSubmit}>
           <Form.Item label="用户名">
             {getFieldDecorator("nickname", {
@@ -97,18 +97,21 @@ class Register extends Component {
 }
 Register = Form.create({})(Register);
 
-const mapStateToProps = (state)=>{
-    return {
-        redirectTo:state.user.redirectTo
-    }
-}
+const mapStateToProps = state => {
+  return {
+    redirectTo: state.user.redirectTo
+  };
+};
 
-const mapDispatchToProps = (dispatch)=>{
-    return {
-        handleRegister(values){
-            const {nickname,password} = values
-            dispatch(register({nickname,password}))
-        }
+const mapDispatchToProps = dispatch => {
+  return {
+    handleRegister(values) {
+      const { nickname, password } = values;
+      dispatch(register({ nickname, password }));
     }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Register);
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Register);

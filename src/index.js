@@ -11,8 +11,7 @@ import "./main.css";
 import { Layout } from "antd";
 import Btns from "./components/Btns";
 const { Header, Footer, Content } = Layout;
-
-
+console.log("%c你想看啥?", "color:red;font-size:20px");
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -29,7 +28,7 @@ ReactDOM.render(
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/chat" component={Chat} />
-			  <Redirect to="/chat"/>
+              <Redirect to="/chat" />
             </Switch>
           </Content>
           <Footer>作者：瓶子</Footer>

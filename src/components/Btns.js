@@ -30,7 +30,7 @@ class Btns extends Component {
         visible: false,
         confirmLoading: false
       });
-      this.props.history.push('/login')
+      this.props.history.push("/login");
     }, 2000);
   }
   // 取消
@@ -49,7 +49,6 @@ class Btns extends Component {
       </Menu>
     );
 
-    console.log("BTns:", this.props);
     return (
       <span className="btn">
         {this.props.location.pathname === "/chat" && this.props.nickname ? (

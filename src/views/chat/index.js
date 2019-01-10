@@ -8,18 +8,29 @@ import {
   getMsgLIst
 } from "../../store/actionCreator";
 import Msg from "../../components/Msg";
+import Cookies from "js-cookie";
 class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: ""
+      content: "",
+      disabled: true,
+      warning: "登录后才能聊天哦～"
     };
     this.myRef = React.createRef();
+    this.isLogin = Cookies.get("userid") ? true : false;
   }
   componentDidMount() {
     this.props.handleInit(); // 获取已登录用户信息
     this.props.handleRecv(); // 获取用户消息
     this.props.handleGetList(); // 获取消息列表
+
+    if (this.isLogin) {
+      this.setState({
+        disabled: false,
+        warning: "来吐槽下吧～"
+      });
+    }
   }
 
   componentDidUpdate() {
@@ -45,13 +56,14 @@ class Chat extends Component {
         </div>
         <div className="input">
           <Input
-            placeholder="来吐槽下吧～"
+            placeholder={this.state.warning}
             value={this.state.content}
             onChange={v => this.handleChange(v)}
             onClick={this.handleScroll.bind(this)}
           />
           <Button
             type="primary"
+            disabled={this.state.disabled}
             onClick={() => {
               this.setState({ content: "" });
               this.props.handleSend(this.props.nickname, this.state.content);
