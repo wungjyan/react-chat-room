@@ -1,0 +1,29 @@
+.msg-item {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+.msg-item .name {
+  padding: 5px;
+  color: black;
+}
+
+.msg-item .msg {
+  position: relative;
+  max-width: 300px;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+.msg-item .time {
+  font-size: 12px;
+}
+.msg-item.self {
+  flex-direction: row-reverse;
+}
+.msg-item.self .msg {
+  margin-right: 10px;
+  background: blue;
+  color: white;
+}
