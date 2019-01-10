@@ -34,7 +34,7 @@
   height: 600px;
   max-width: 600px;
   border: 1px solid #b7b7b7;
-  margin: 0px auto;
+  margin: 0px auto 50px;
 }
 .chat-box .input {
   position: absolute;
@@ -63,9 +63,13 @@
   bottom: 0;
   left: 0;
   right: 0;
+  height: 60px;
 }
 .ant-layout-content {
   background: white;
+}
+.ant-layout-content {
+  overflow: auto;
 }
 .chat-box .ant-input:focus {
   border: none;
