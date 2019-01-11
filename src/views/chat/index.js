@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Input, Button } from "antd";
+import { Input, Button, message } from "antd";
 import {
   initData,
   sendMsg,
@@ -22,8 +22,10 @@ class Chat extends Component {
   }
   componentDidMount() {
     this.props.handleInit(); // 获取已登录用户信息
-    this.props.handleRecv(); // 获取用户消息
-    this.props.handleGetList(); // 获取消息列表
+    if (!this.props.msgList.length) {
+      this.props.handleRecv(); // 获取用户消息
+      this.props.handleGetList(); // 获取消息列表
+    }
 
     if (this.isLogin) {
       this.setState({
@@ -95,15 +97,23 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handleInit() {
+      console.log("执行init");
       dispatch(initData());
     },
     handleSend(user, content) {
+      console.log("执行Send");
+      if (!content) {
+        message.error("不能发空消息！");
+        return;
+      }
       dispatch(sendMsg({ user, content }));
     },
     handleRecv() {
+      console.log("执行Recv");
       dispatch(recvMsg());
     },
     handleGetList() {
+      console.log("执行GETLIST");
       dispatch(getMsgLIst());
     }
   };

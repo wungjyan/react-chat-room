@@ -6,9 +6,9 @@ const initState = {
 function reducer(state = initState, action) {
   switch (action.type) {
     case MSG_RECV:
-      return { ...state, msgList: [...state.msgList, action.data] };
+      return { msgList: [...state.msgList, action.data] };
     case MSG_LIST:
-      return { ...state, msgList: [...action.data] };
+      return { msgList: [...action.data] };
     default:
       return state;
   }
