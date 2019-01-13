@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Icon, Input, Button } from "antd";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { login } from "../../store/actionCreator";
 
 class Login extends Component {
@@ -56,6 +56,7 @@ class Login extends Component {
             >
               登录
             </Button>
+            或 <Link to="/register">注册</Link>
           </Form.Item>
         </Form>
       </div>
