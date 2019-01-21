@@ -10,7 +10,7 @@ import {
 } from "./actionTypes";
 import { message } from "antd";
 import io from "socket.io-client";
-const socket = io("http://120.78.167.54:9000");
+const socket = io("http://localhost:9000");
 
 function getRegisterAction(obj) {
   return { type: REGISTER_SUCCESS, data: obj };
@@ -84,6 +84,7 @@ export const getMsgLIst = () => {
   return dispatch => {
     axios.get("/user/getmsglist").then(res => {
       if (res.status === 200 && res.data.code === 0) {
+        console.log('消息列表:',res.data.data)
         dispatch(msgList(res.data.data));
       }
     });

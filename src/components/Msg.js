@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import moment from 'moment'
 import "./style.css";
+const formatTime = time => moment(time).startOf('minute').fromNow()
+.replace(/hours?/, '小时')
+.replace('ago', '前').replace(/days?/, '天')
+.replace(/minutes?/, '分钟')
+.replace(/\ban?/, '1')
+.replace(/months?/, '个月')
+.replace(/\byears?/, '年')
+.replace(/\s/g, '')
+.replace('fewseconds', '分钟')
 class Msg extends Component {
-  formateTime(time) {
-    let t = new Date(time);
-    let d = t.getDate();
-    let h = t.getHours() < 10 ? `0${t.getHours()}` : `${t.getHours()}`;
-    let m = t.getMinutes() < 10 ? `0${t.getMinutes()}` : `${t.getMinutes()}`;
-    return new Date().getDate() > d ? `昨天${h}:${m}` : `${h}:${m}`;
-  }
   render() {
     return (
       <div
@@ -16,7 +19,7 @@ class Msg extends Component {
         <span className="name">{this.props.info.user}</span>
         <span className="msg">{this.props.info.content}</span>
         <span className="time">
-          {this.formateTime(this.props.info.create_time)}
+          {formatTime(this.props.info.create_time)}
         </span>
       </div>
     );
